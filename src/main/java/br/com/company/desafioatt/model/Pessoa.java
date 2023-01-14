@@ -1,4 +1,4 @@
-package br.com.company.desafioatt.modelo;
+package br.com.company.desafioatt.model;
 
 import jakarta.persistence.*;
 
@@ -11,13 +11,19 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String nome;
+    public Pessoa() {
+    }
+
+    public Pessoa(Long id, String nome, Enderecos enderecos, LocalDate dataNascimento) {
+        this.id = id;
+        this.nome = nome;
+        this.ender = enderecos;
+        this.dataNascimento = dataNascimento;
+    }
+    private String nome ;
     @Column(nullable = false)
     private String enderecos;
     private LocalDate dataNascimento;
-
-
 
     public Long getId() {
         return id;
